@@ -1,0 +1,6 @@
+{
+  "name": "techrium/symfony-stack",
+  "require": {
+    "symfony/framework-bundle": "^7.0"
+  }
+}

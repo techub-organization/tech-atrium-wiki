@@ -12,6 +12,10 @@
 - `php`: PHP で API を返す案
 - `csharp`: C# で API を返す案
 - `kotlin`: Kotlin で API を返す案
+- `scala`: Scala で API を返す案
+- `elixir`: Elixir で API を返す案
+- `clojure`: Clojure で API を返す案
+- `haskell`: Haskell で API を返す案
 
 ## framework
 
@@ -24,6 +28,13 @@
 - `rails`: Ruby の API 実装案
 - `laravel`: PHP の API 実装案
 - `spring-boot`: Java の API 実装案
+- `django`: Python の業務向け API 実装案
+- `gin`: Go の軽量 API 実装案
+- `phoenix`: Elixir の API 実装案
+- `actix`: Rust の高速 API 実装案
+- `ktor`: Kotlin の API 実装案
+- `micronaut`: JVM の軽量 API 実装案
+- `symfony`: PHP の API 実装案
 
 ## database
 
