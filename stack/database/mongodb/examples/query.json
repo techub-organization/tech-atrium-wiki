@@ -1,0 +1,6 @@
+{
+  "find": "articles",
+  "filter": {
+    "level": "base"
+  }
+}

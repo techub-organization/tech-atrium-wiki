@@ -1,0 +1,4 @@
+{
+  "collection": "articles",
+  "fields": ["slug", "title", "level"]
+}

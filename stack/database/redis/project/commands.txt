@@ -1,0 +1,2 @@
+SET techrium:health ok
+GET techrium:health

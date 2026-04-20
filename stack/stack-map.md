@@ -16,6 +16,10 @@
 - `elixir`: Elixir で API を返す案
 - `clojure`: Clojure で API を返す案
 - `haskell`: Haskell で API を返す案
+- `ocaml`: OCaml で API を返す案
+- `erlang`: Erlang で API を返す案
+- `perl`: Perl で API を返す案
+- `lua`: Lua で API を返す案
 
 ## framework
 
@@ -35,8 +39,19 @@
 - `ktor`: Kotlin の API 実装案
 - `micronaut`: JVM の軽量 API 実装案
 - `symfony`: PHP の API 実装案
+- `hono`: TypeScript の軽量 API 実装案
+- `fiber`: Go の高速 API 実装案
+- `rocket`: Rust の型安全 API 実装案
+- `tide`: Rust の軽量 API 実装案
+- `remix`: React 系の API 実装案
+- `nuxt`: Vue 系の API 実装案
 
 ## database
 
 - `sqlite`: 軽量 DB と補助 API の組み合わせ
 - `postgres`: 本番寄り DB と API の組み合わせ
+- `mysql`: 一般的なリレーショナル DB の組み合わせ
+- `mariadb`: MySQL 互換 DB の組み合わせ
+- `mongodb`: ドキュメント DB の組み合わせ
+- `redis`: キャッシュ・補助ストアの組み合わせ
+- `cockroachdb`: 分散リレーショナル DB の組み合わせ
