@@ -1,0 +1,35 @@
+:root {
+  --bg: #f5f1e8;
+  --surface: rgba(255, 255, 255, 0.8);
+  --ink: #1f2937;
+  --muted: #526072;
+  --line: rgba(31, 41, 55, 0.12);
+  --accent-a: #ee6c4d;
+  --accent-b: #2a9d8f;
+  --accent-c: #3d5a80;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background:
+    radial-gradient(circle at top left, rgba(238, 108, 77, 0.2), transparent 24rem),
+    radial-gradient(circle at top right, rgba(42, 157, 143, 0.18), transparent 24rem),
+    linear-gradient(180deg, #fffaf3 0%, var(--bg) 100%);
+  color: var(--ink);
+  font-family: "IBM Plex Sans", "Noto Sans JP", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+main {
+  min-height: 100vh;
+}
