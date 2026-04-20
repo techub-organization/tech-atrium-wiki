@@ -3,10 +3,7 @@
 ## Top Level
 
 - `docs`: 仕様、運用、ガイド、参照資料
-- `backend`: 共同開発者ごとのバックエンド実装雛形
-- `language`: 言語別のサンプル、テンプレート、補助ツール
-- `framework`: フロントエンドや UI 関連の実装雛形
-- `database`: ローカル検証用スキーマ、マイグレーション、シード
+- `stack`: 共同開発者が技術スタック別の API 契約、雛形、接続方針を管理する作業領域
 
 ## Docs Layout
 
@@ -14,6 +11,12 @@
 - `docs/guides`: 共同開発者向けガイド
 - `docs/operations`: 開発フロー、運用文書
 - `docs/reference`: ディレクトリマップや参照資料
+
+## Stack Layout
+
+- `stack/language`: 言語起点の API 雛形
+- `stack/framework`: フレームワーク起点の API 雛形
+- `stack/database`: DB 起点の接続方針、補助 API 方針
 
 ## Conventions
 

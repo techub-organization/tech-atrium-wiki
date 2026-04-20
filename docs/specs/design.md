@@ -2,9 +2,9 @@
 
 ## 概要
 
-tech-atrium-wiki（通称: techrium）は、開発者向けの動的な技術 Wiki プラットフォームである。Next.js（SSG/SSR 混合）+ React を Frontend に、Supabase（PostgreSQL / GoTrue）を Backend に採用し、Vercel 上にデプロイする。
+tech-atrium-wiki（通称: techrium）は、開発者向けの動的な技術 Wiki プラットフォームである。Next.js（SSG/SSR 混合）+ React を Frontend に、Supabase（PostgreSQL / GoTrue）を基盤データストアとして採用し、Vercel 上にデプロイする。
 
-初学者・中級者・上級者の 3 階層ユーザーに対し、MDX ベースの多層的コンテンツ、動的比較エンジン、GitHub OAuth 認証、コメント機能、プルリク型修正提案フローを提供する。Techrium Theme（プリズム・虹色グラデーション）を全体に適用し、視覚的に直感的な UI を実現する。メイン開発者が大枠を実装しつつ、言語・フレームワーク別の担当者が大量に参加する共同開発体制を前提とする。
+初学者・中級者・上級者の 3 階層ユーザーに対し、MDX ベースの多層的コンテンツ、動的比較エンジン、GitHub OAuth 認証、コメント機能、プルリク型修正提案フローを提供する。Techrium Theme（プリズム・虹色グラデーション）を全体に適用し、視覚的に直感的な UI を実現する。メイン開発者が React フロントと統合方針を主導し、共同開発者は `stack/` 配下で技術スタック別の API 契約と実装雛形を持ち寄る前提とする。
 
 ---
 
@@ -73,65 +73,27 @@ graph TD
 
 ## コンポーネントとインターフェース
 
-### ディレクトリ構成
+### 現在のリポジトリ構成
 
 ```
 /
-├── src/
-│   ├── content/
-│   │   └── docs/                    # MDX記事（階層構造）
-│   │       ├── languages/           # 言語カテゴリ記事
-│   │       ├── databases/           # DB カテゴリ記事
-│   │       └── frameworks/          # フレームワーク記事
-│   ├── components/
-│   │   ├── ui/                      # 共通UIコンポーネント
-│   │   │   ├── Button.tsx
-│   │   │   ├── Badge.tsx
-│   │   │   ├── TechriumCard.tsx
-│   │   │   └── LoadingSpinner.tsx
-│   │   └── features/                # 機能別コンポーネント
-│   │       ├── comparison/          # 比較エンジン関連
-│   │       │   ├── TechPicker.tsx
-│   │       │   ├── ComparisonMatrix.tsx
-│   │       │   └── TechRadarChart.tsx
-│   │       ├── auth/                # 認証関連
-│   │       │   ├── LoginButton.tsx
-│   │       │   └── UserAvatar.tsx
-│   │       ├── comments/            # コメント関連
-│   │       │   ├── CommentSection.tsx
-│   │       │   └── CommentForm.tsx
-│   │       └── proposals/           # 修正提案関連
-│   │           ├── ProposalEditor.tsx
-│   │           └── ProposalList.tsx
-│   ├── app/                         # Next.js App Router
-│   │   ├── layout.tsx
-│   │   ├── page.tsx
-│   │   ├── catalog/
-│   │   │   └── [slug]/page.tsx
-│   │   ├── compare/
-│   │   │   └── page.tsx
-│   │   ├── articles/
-│   │   │   └── [slug]/page.tsx
-│   │   ├── trends/
-│   │   │   └── page.tsx
-│   │   └── admin/
-│   │       └── proposals/page.tsx
-│   ├── lib/                         # ユーティリティ・Supabaseクライアント
-│   │   ├── supabase.ts              # Supabaseクライアント初期化
-│   │   ├── auth.ts                  # 認証ヘルパー
-│   │   ├── mdx.ts                   # MDXパース・シリアライズ
-│   │   └── search.ts                # 検索・デバウンスロジック
-│   └── styles/                      # グローバルスタイル
-│       ├── globals.css
-│       └── techrium-theme.css       # Techrium Theme 定義
-├── supabase/
-│   └── migrations/                  # DBマイグレーション
-│       ├── 001_initial_schema.sql
-│       ├── 002_rls_policies.sql
-│       └── 003_seed_presets.sql
-└── public/                          # 静的アセット
-    └── icons/
+├── docs/
+│   ├── specs/
+│   ├── guides/
+│   ├── operations/
+│   └── reference/
+└── stack/
+    ├── language/
+    ├── framework/
+    └── database/
 ```
+
+### 運用前提
+
+- フロントエンド実装はメイン開発者が `React / Next.js` 前提で統合する
+- 共同開発者は `stack/` 配下で担当技術スタックの API 契約、サンプル、実装雛形を管理する
+- `stack/framework/react/` はフロント統合観点の共通契約置き場として扱う
+- `stack/database/` は DB 単体ではなく、補助 API と組み合わせる前提の資料置き場として扱う
 
 ### 主要コンポーネント設計
 

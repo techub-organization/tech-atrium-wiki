@@ -1,22 +1,22 @@
-# 共同開発者向けバックエンドガイド
+# 共同開発者向け API ガイド
 
 ## 方針
 
-フロントエンドは `React` を共通基盤として利用する。共同開発者は、好きな言語・フレームワーク・データベースでバックエンドを実装してよい。
+フロントエンドはメイン開発者が `React / Next.js` を共通基盤として整備する。共同開発者は、好きな言語・フレームワーク・データベースで API 実装案を持ち寄ってよい。
 
 ただし、React フロントから統合しやすくするため、インターフェースはできるだけ HTTP/JSON を基本とする。
 
 ## 配置ルール
 
-- フロントエンド関連は `framework/react/` 配下
-- バックエンド関連は `backend/` 配下
-- 言語別サンプルや記事補助資産は `language/` 配下
-- DB スキーマやローカル検証資産は `database/` 配下
+- フロント統合観点の資料は `stack/framework/react/` 配下
+- 言語別 API 案は `stack/language/` 配下
+- フレームワーク別 API 案は `stack/framework/` 配下
+- DB 起点の接続方針は `stack/database/` 配下
 
 ## バックエンド実装ルール
 
-- 各共同開発者は `backend/<stack-name>/` を単位に作業する
-- 最低でも `README.md`、`api-contract.md`、`project/` を用意する
+- 各共同開発者は `stack/<category>/<stack-name>/` を単位に作業する
+- 最低でも `README.md`、`api/contract.md`、`project/` を用意する
 - エンドポイント、入出力、依存 DB を Markdown に記載する
 - レスポンス形式は React フロントが扱いやすい JSON を優先する
 
@@ -29,17 +29,19 @@
 
 ## 推奨構成
 
-- `backend/python-fastapi`: Python API
-- `backend/typescript-express`: TypeScript API
-- `backend/rust-axum`: Rust API
-- `backend/dart-shelf`: Dart API
+- `stack/language/python`: Python 起点の API 案
+- `stack/framework/fastapi`: FastAPI 案
+- `stack/language/typescript`: TypeScript 起点の API 案
+- `stack/framework/express`: Express 案
+- `stack/database/postgres`: Postgres 起点の接続方針
 
 ## 最低限そろえるもの
 
 - `README.md`: その実装の責務
-- `api-contract.md`: エンドポイントとレスポンス形式
+- `api/contract.md`: エンドポイントとレスポンス形式
 - `project/`: 実行可能な雛形
 - 必要なら `tests/`: 主要 API の確認
+- 必要なら `examples/` と `templates/`: サンプル request/response やメタデータ例
 
 ## React との統合観点
 

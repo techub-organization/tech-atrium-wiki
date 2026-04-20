@@ -1,5 +1,11 @@
 # Docs
 
+## 現在の前提
+
+- フロントエンドは `React / Next.js` を基盤として進める
+- フロント実装の主導はメイン開発者が担う
+- 共同開発者は `stack/` 配下で技術スタック別の API 契約、雛形、接続方針を持ち寄る
+
 ## 構成
 
 - `specs/`: 要件定義、設計書
@@ -14,3 +20,9 @@
 - `operations/development-flow.md`
 - `guides/collaborator-backend-guide.md`
 - `reference/directory-map.md`
+
+## 関連資料
+
+- `../stack/README.md`
+- `../stack/contributor-guide.md`
+- `../stack/stack-map.md`
