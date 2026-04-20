@@ -2,11 +2,18 @@
 
 ## Top Level
 
-- `docs`: 要件、設計、運用ドキュメント
+- `docs`: 仕様、運用、ガイド、参照資料
 - `backend`: 共同開発者ごとのバックエンド実装雛形
 - `language`: 言語別のサンプル、テンプレート、補助ツール
 - `framework`: フロントエンドや UI 関連の実装雛形
 - `database`: ローカル検証用スキーマ、マイグレーション、シード
+
+## Docs Layout
+
+- `docs/specs`: 要件定義、設計書
+- `docs/guides`: 共同開発者向けガイド
+- `docs/operations`: 開発フロー、運用文書
+- `docs/reference`: ディレクトリマップや参照資料
 
 ## Conventions
 
