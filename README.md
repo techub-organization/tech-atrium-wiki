@@ -8,6 +8,8 @@
 
 - `docs/`: 要件、設計、運用、参照資料
 - `stack/`: 技術スタック別の API 契約、サンプル、実装雛形
+- `app/`: メインフロントエンドのページ
+- `lib/api/`: フロントが参照する API 取得層とダミーデータ
 
 ## まず読むもの
 
@@ -18,6 +20,27 @@
 - `stack/README.md`
 - `stack/contributor-guide.md`
 - `stack/stack-map.md`
+
+## オンボーディング
+
+### メイン開発者向け
+
+1. `docs/specs/requirements.md` と `docs/specs/design.md` を確認する
+2. `app/` と `lib/api/` を起点に React フロントを整備する
+3. API 受け口が必要な場合は `lib/api/data-source.ts` に集約する
+
+### 共同開発者向け
+
+1. `stack/contributor-guide.md` を確認する
+2. 自分の担当スタックを `stack/stack-map.md` から選ぶ
+3. `stack/<category>/<stack-name>/` で `README.md`、`api/contract.md`、`project/` を更新する
+4. レスポンス形式は React フロントが扱いやすい HTTP/JSON を維持する
+
+## API 連携方針
+
+- 初期状態ではフロントはダミーデータを表示する
+- API エンドポイントが利用可能になったら、フロントはそのレスポンスで表示内容を上書きする
+- フロントが参照するデータ形式は `lib/api/types.ts` と `lib/api/mock-data.ts` を基準に保つ
 
 ## 現在の進め方
 
@@ -35,3 +58,5 @@
 - `stack/language`: 言語起点の API 雛形
 - `stack/framework`: フレームワーク起点の API 雛形
 - `stack/database`: DB 起点の接続方針
+- `app`: メインフロントのページ
+- `lib/api`: API 呼び出し層、ダミーデータ、型定義
