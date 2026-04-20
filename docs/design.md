@@ -2,7 +2,7 @@
 
 ## 概要
 
-tech-atrium-wiki（通称: techrium）は、開発者向けの動的な技術 Wiki プラットフォームである。SvelteKit（SSG/SSR 混合）を Frontend に、Supabase（PostgreSQL / GoTrue）を Backend に採用し、Vercel 上にデプロイする。
+tech-atrium-wiki（通称: techrium）は、開発者向けの動的な技術 Wiki プラットフォームである。Next.js（SSG/SSR 混合）+ React を Frontend に、Supabase（PostgreSQL / GoTrue）を Backend に採用し、Vercel 上にデプロイする。
 
 初学者・中級者・上級者の 3 階層ユーザーに対し、MDX ベースの多層的コンテンツ、動的比較エンジン、GitHub OAuth 認証、コメント機能、プルリク型修正提案フローを提供する。Techrium Theme（プリズム・虹色グラデーション）を全体に適用し、視覚的に直感的な UI を実現する。メイン開発者が大枠を実装しつつ、言語・フレームワーク別の担当者が大量に参加する共同開発体制を前提とする。
 
@@ -20,11 +20,11 @@ graph TD
         U3[上級者 / Admin]
     end
 
-    subgraph Frontend["Frontend: SvelteKit / Vercel"]
+    subgraph Frontend["Frontend: Next.js / Vercel"]
         direction TB
-        UI[UI Pages<br/>SvelteKit SSG/SSR]
+        UI[UI Pages<br/>Next.js SSG/SSR]
         MDX[MDX Content Collections<br/>静的コンテンツ]
-        RC[Svelte Components<br/>動的UI]
+        RC[React Components<br/>動的UI]
     end
 
     subgraph Vercel["CDN / Vercel Edge"]
@@ -58,12 +58,12 @@ graph TD
 
 | レイヤー | 技術 | 用途 |
 |---|---|---|
-| Frontend Framework | SvelteKit 2.x | SSG/SSR 混合ページ生成 |
-| UI Library | Svelte 5 | 動的インタラクティブコンポーネント |
+| Frontend Framework | Next.js 15.x | SSG/SSR 混合ページ生成 |
+| UI Library | React 19 | 動的インタラクティブコンポーネント |
 | Styling | Tailwind CSS | Techrium Theme 実装 |
 | Content | MDX | 記事コンテンツ管理 |
 | Math Rendering | KaTeX / MathJax | LaTeX 数式レンダリング |
-| Chart | Chart.js / svelte-chartjs | レーダーチャート |
+| Chart | Chart.js / react-chartjs-2 | レーダーチャート |
 | Auth | Supabase GoTrue | GitHub OAuth 認証 |
 | Database | Supabase PostgreSQL | データストア |
 | Storage | Supabase Storage | 画像・アセット保存 |
@@ -85,37 +85,37 @@ graph TD
 │   │       └── frameworks/          # フレームワーク記事
 │   ├── components/
 │   │   ├── ui/                      # 共通UIコンポーネント
-│   │   │   ├── Button.svelte
-│   │   │   ├── Badge.svelte
-│   │   │   ├── TechriumCard.svelte
-│   │   │   └── LoadingSpinner.svelte
+│   │   │   ├── Button.tsx
+│   │   │   ├── Badge.tsx
+│   │   │   ├── TechriumCard.tsx
+│   │   │   └── LoadingSpinner.tsx
 │   │   └── features/                # 機能別コンポーネント
 │   │       ├── comparison/          # 比較エンジン関連
-│   │       │   ├── TechPicker.svelte
-│   │       │   ├── ComparisonMatrix.svelte
-│   │       │   └── TechRadarChart.svelte
+│   │       │   ├── TechPicker.tsx
+│   │       │   ├── ComparisonMatrix.tsx
+│   │       │   └── TechRadarChart.tsx
 │   │       ├── auth/                # 認証関連
-│   │       │   ├── LoginButton.svelte
-│   │       │   └── UserAvatar.svelte
+│   │       │   ├── LoginButton.tsx
+│   │       │   └── UserAvatar.tsx
 │   │       ├── comments/            # コメント関連
-│   │       │   ├── CommentSection.svelte
-│   │       │   └── CommentForm.svelte
+│   │       │   ├── CommentSection.tsx
+│   │       │   └── CommentForm.tsx
 │   │       └── proposals/           # 修正提案関連
-│   │           ├── ProposalEditor.svelte
-│   │           └── ProposalList.svelte
-│   ├── routes/                      # SvelteKitページ
-│   │   ├── +layout.svelte
-│   │   ├── +page.svelte
+│   │           ├── ProposalEditor.tsx
+│   │           └── ProposalList.tsx
+│   ├── app/                         # Next.js App Router
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
 │   │   ├── catalog/
-│   │   │   └── [slug]/+page.svelte
+│   │   │   └── [slug]/page.tsx
 │   │   ├── compare/
-│   │   │   └── +page.svelte
+│   │   │   └── page.tsx
 │   │   ├── articles/
-│   │   │   └── [slug]/+page.svelte
+│   │   │   └── [slug]/page.tsx
 │   │   ├── trends/
-│   │   │   └── +page.svelte
+│   │   │   └── page.tsx
 │   │   └── admin/
-│   │       └── proposals/+page.svelte
+│   │       └── proposals/page.tsx
 │   ├── lib/                         # ユーティリティ・Supabaseクライアント
 │   │   ├── supabase.ts              # Supabaseクライアント初期化
 │   │   ├── auth.ts                  # 認証ヘルパー
@@ -395,18 +395,18 @@ sequenceDiagram
     participant Dev as 開発者
     participant Git as Git Repository
     participant Vercel as Vercel Build
-    participant SvelteKit as SvelteKit SSG
+    participant Next as Next.js SSG
     participant MDX as MDX Processor
     participant Edge as Vercel Edge
 
     Dev->>Git: MDXファイルをコミット
     Git->>Vercel: プッシュトリガー
-    Vercel->>SvelteKit: ビルド開始
-    SvelteKit->>MDX: Content Collections 解析
+    Vercel->>Next: ビルド開始
+    Next->>MDX: Content Collections 解析
     MDX->>MDX: フロントマター抽出・JSX変換
-    MDX->>SvelteKit: Article オブジェクト生成
-    SvelteKit->>SvelteKit: 静的HTML生成（SSG）
-    SvelteKit->>Edge: 静的アセットデプロイ
+    MDX->>Next: Article オブジェクト生成
+    Next->>Next: 静的HTML生成（SSG）
+    Next->>Edge: 静的アセットデプロイ
     Edge-->>User: CDN 配信
 ```
 
@@ -415,17 +415,17 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     participant User as ユーザー
-    participant Svelte as Svelte Component
+    participant React as React Component
     participant Supabase as Supabase Client
     participant DB as PostgreSQL
 
-    User->>Svelte: ページ操作（比較選択・検索等）
-    Svelte->>Supabase: supabase.from('tech_items').select()
+    User->>React: ページ操作（比較選択・検索等）
+    React->>Supabase: supabase.from('tech_items').select()
     Supabase->>DB: SQL クエリ実行
     DB-->>Supabase: 結果セット返却
-    Supabase-->>Svelte: データ返却
-    Svelte->>Svelte: State 更新・再レンダリング
-    Svelte-->>User: UI 更新表示
+    Supabase-->>React: データ返却
+    React->>React: State 更新・再レンダリング
+    React-->>User: UI 更新表示
 ```
 
 ### 認証フロー（GitHub OAuth → Supabase GoTrue → セッション管理）
@@ -433,13 +433,13 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     participant User as ユーザー
-    participant SvelteKit as SvelteKit Page
+    participant Next as Next.js Page
     participant GoTrue as Supabase GoTrue
     participant GitHub as GitHub OAuth
     participant DB as PostgreSQL
 
-    User->>SvelteKit: 「GitHub でログイン」クリック
-    SvelteKit->>GoTrue: signInWithOAuth({ provider: 'github' })
+    User->>Next: 「GitHub でログイン」クリック
+    Next->>GoTrue: signInWithOAuth({ provider: 'github' })
     GoTrue->>GitHub: OAuth 認証リクエスト
     GitHub-->>User: 認証画面表示
     User->>GitHub: 認証承認
@@ -447,9 +447,9 @@ sequenceDiagram
     GoTrue->>GitHub: アクセストークン取得
     GitHub-->>GoTrue: ユーザー情報返却
     GoTrue->>DB: USERS テーブルへ upsert
-    GoTrue-->>SvelteKit: セッション（JWT）発行
-    SvelteKit->>SvelteKit: Cookie にセッション保存
-    SvelteKit-->>User: ログイン完了・リダイレクト
+    GoTrue-->>Next: セッション（JWT）発行
+    Next->>Next: Cookie にセッション保存
+    Next-->>User: ログイン完了・リダイレクト
 ```
 
 ---
@@ -525,7 +525,7 @@ sequenceDiagram
 
 ### エラーバウンダリ設計
 
-- Svelte コンポーネントは `+error.svelte` と機能単位のフェイルセーフ UI を組み合わせ、個別コンポーネントのエラーがページ全体に波及しないようにする
+- React コンポーネントは `error.tsx` と機能単位のフェイルセーフ UI を組み合わせ、個別コンポーネントのエラーがページ全体に波及しないようにする
 - Supabase クライアントのエラーは `lib/supabase.ts` で一元的にハンドリングし、型安全なエラーオブジェクトを返す
 - MDX パースエラーはビルド時に検出し、CI/CD パイプラインで早期に失敗させる
 

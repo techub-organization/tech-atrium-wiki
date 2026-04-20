@@ -5,4 +5,4 @@ create table tech_items (
 );
 
 insert into tech_items (name, category)
-values ('Svelte', 'framework');
+values ('React', 'framework');
