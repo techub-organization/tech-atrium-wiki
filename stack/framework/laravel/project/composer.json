@@ -1,0 +1,6 @@
+{
+  "name": "techrium/laravel-stack",
+  "require": {
+    "laravel/framework": "^11.0"
+  }
+}
