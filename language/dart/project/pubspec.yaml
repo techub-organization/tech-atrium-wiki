@@ -1,0 +1,5 @@
+name: techrium_dart_sample
+description: Minimal Dart sample for tech-atrium-wiki
+version: 0.1.0
+environment:
+  sdk: ">=3.0.0 <4.0.0"
