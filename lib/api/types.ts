@@ -18,4 +18,9 @@ export type HomePageData = {
   hero: HeroData;
   sources: ApiSource[];
   highlights: string[];
+  articlePreview: {
+    title: string;
+    summary: string;
+    markdown: string;
+  };
 };
