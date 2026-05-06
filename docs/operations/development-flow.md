@@ -180,7 +180,7 @@ ADR なしに `stack/` の実装を本番に直接持ち込まないこと。
 
 - `docs/specs/requirements.md` と `docs/specs/design.md` を確認する
 - 必要なら `stack/README.md` と `stack/contributor-guide.md` を確認する
-- 着手タスクを issue または Markdown 上のタスク表へ記載する
+- 着手タスクを issue または `docs/operations/active-work.md` へ記載する
 - 担当者とレビュー担当を明確にする
 - 変更対象ディレクトリを宣言する
 

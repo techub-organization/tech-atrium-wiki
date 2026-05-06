@@ -19,6 +19,7 @@
 - `specs/requirements.md`
 - `specs/design.md`
 - `operations/development-flow.md`
+- `operations/active-work.md`
 - `pr/details-frontend-build-lock.md`
 - `guides/collaborator-backend-guide.md`
 - `reference/directory-map.md`
