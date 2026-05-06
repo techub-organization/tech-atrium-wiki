@@ -4,6 +4,7 @@ import { Section } from "@/app/components/layout/Section";
 import { HeroSection } from "@/app/components/home/HeroSection";
 import { StackSourceGrid } from "@/app/components/home/StackSourceGrid";
 import { PolicySection } from "@/app/components/home/PolicySection";
+import { ArticlePreviewSection } from "@/app/components/home/ArticlePreviewSection";
 
 export default async function HomePage() {
   const data = await loadHomePageData();
@@ -18,6 +19,14 @@ export default async function HomePage() {
 
         <Section spacing="section">
           <StackSourceGrid sources={data.sources} />
+        </Section>
+
+        <Section spacing="section">
+          <ArticlePreviewSection
+            title={data.articlePreview.title}
+            summary={data.articlePreview.summary}
+            markdown={data.articlePreview.markdown}
+          />
         </Section>
       </Container>
 

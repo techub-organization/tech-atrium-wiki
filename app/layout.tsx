@@ -1,4 +1,6 @@
 import "./globals.css";
+import "katex/dist/katex.min.css";
+import "highlight.js/styles/github-dark.css";
 import type { ReactNode } from "react";
 
 export const metadata = {

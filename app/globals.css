@@ -211,6 +211,89 @@ main {
   border-left: 6px solid var(--color-orange);
 }
 
+.article-markdown {
+  color: var(--color-primary);
+}
+
+.article-markdown > :first-child {
+  margin-top: 0;
+}
+
+.article-markdown > :last-child {
+  margin-bottom: 0;
+}
+
+.article-markdown h2,
+.article-markdown h3,
+.article-markdown h4 {
+  font-family: var(--font-family-display);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  margin: 2rem 0 0.75rem;
+}
+
+.article-markdown h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.article-markdown h3 {
+  font-size: clamp(1.25rem, 3vw, 1.6rem);
+}
+
+.article-markdown p,
+.article-markdown li {
+  color: var(--color-secondary);
+  line-height: var(--leading-loose);
+}
+
+.article-markdown p {
+  margin: 0 0 1rem;
+}
+
+.article-markdown strong {
+  color: var(--color-primary);
+}
+
+.article-markdown ol,
+.article-markdown ul {
+  margin: 0 0 1.25rem;
+  padding-left: 1.4rem;
+}
+
+.article-markdown li + li {
+  margin-top: 0.45rem;
+}
+
+.article-markdown code:not(pre code) {
+  background: rgba(26, 22, 20, 0.08);
+  border: 1px solid rgba(26, 22, 20, 0.1);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family-mono);
+  font-size: 0.9em;
+  padding: 0.15rem 0.35rem;
+}
+
+.article-markdown pre {
+  margin: 1.5rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+}
+
+.article-markdown pre code {
+  display: block;
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  line-height: 1.7;
+  padding: 1.25rem 1.5rem;
+}
+
+.article-markdown .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.75rem 0;
+}
+
 /* Animations */
 @keyframes texture-fade-in {
   from {
