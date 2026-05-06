@@ -36,6 +36,16 @@ stack/<category>/<stack-name>/
 └── tests/              # 検証テスト（任意）
 ```
 
+## 参考基準
+
+共同開発者が `stack/language/` 配下を整備するときは、まず `stack/language/go/` を参考基準として見ること。
+
+- `README.md` にディレクトリ全体の目的と構成方針を書く
+- `notes/` を一覧向け、初学者向け、中級者向けに分けられるようにする
+- `examples/`, `project/`, `api/`, `templates/`, `tests/` の役割を分ける
+
+Go ディレクトリは、言語系ディレクトリをどう揃えるかの基準例として `main` に置いている。
+
 ## 新しいスタックを追加するには
 
 ```bash
