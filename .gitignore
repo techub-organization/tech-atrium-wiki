@@ -1,6 +1,13 @@
 .DS_Store
 node_modules
 .next
+tsconfig.tsbuildinfo
 /docs/pr
 *_revision_prompt.md
 /stack/language/testlang/
+
+# Dart / Flutter の生成物（stack/framework/flutter など）
+.dart_tool/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies

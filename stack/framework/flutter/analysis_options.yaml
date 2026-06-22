@@ -1,0 +1,8 @@
+# Flutter スタックワークスペースの解析設定
+#
+# 実行可能な雛形は project/ に置き、そこで `flutter pub get` を実行する。
+# examples/ はドキュメント・記事用の参照スニペット置き場であり、
+# 単独ファイルとして package:flutter を解決できないため解析対象から除外する。
+analyzer:
+  exclude:
+    - examples/**
