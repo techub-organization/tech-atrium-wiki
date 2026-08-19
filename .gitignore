@@ -11,3 +11,6 @@ tsconfig.tsbuildinfo
 build/
 .flutter-plugins
 .flutter-plugins-dependencies
+
+# Gradle の生成物（stack/language/{java,kotlin}, stack/framework/{ktor,micronaut,spring-boot}）
+.gradle/
